@@ -28,6 +28,7 @@ return function (App $app) {
         return $db;
     };
 
-    $container['ToDoModel'] = new ToDoApp\factories\GetAllToDosControllerFactory();
+    $container['ToDoModel'] = new ToDoApp\factories\ToDoModelFactory();
+    $container['GetAllToDosController'] = new ToDoApp\factories\GetAllToDosControllerFactory();
 
 };
