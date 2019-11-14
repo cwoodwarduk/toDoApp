@@ -1,2 +1,16 @@
-<?php
+<h1>Your To-Do List:</h1>
 
+<?php
+$output = '';
+foreach ($toDos as $toDo){
+    $id = $toDo['id'];
+    $output .="<h2>Thing to do no." . $id . ": " . $toDo['name'] . "</h2>";
+}
+echo $output;
+?>
+
+<h2>Add Thing To Do</h2>
+<form action="/add" method="post" >
+    <input name="name" type="text">
+    <input type="submit" value="Add To Do">
+</form>

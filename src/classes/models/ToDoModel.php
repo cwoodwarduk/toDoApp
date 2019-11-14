@@ -18,4 +18,10 @@ class ToDoModel
         return $results;
     }
 
+    public function addToDo($name)
+    {
+        $query = $this->db->prepare('INSERT INTO `toDos` (`name`, `completed`) VALUES (:name, `0`);');
+        $query->bindParam(':name', $name);
+        return $query->execute();
+    }
 }
