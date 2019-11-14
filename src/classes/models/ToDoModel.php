@@ -24,4 +24,11 @@ class ToDoModel
         $query->bindParam(':name', $name);
         return $query->execute();
     }
+
+    public function completeToDo($id)
+    {
+        $query = $this->db->prepare('UPDATE `toDos` SET `completed` = 1 WHERE `id` = :id;');
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
 }

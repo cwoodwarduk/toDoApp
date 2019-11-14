@@ -4,10 +4,14 @@
 $output = '';
 foreach ($toDos as $toDo){
     $id = $toDo['id'];
-    $output .="<h2>Thing to do no." . $id . ": " . $toDo['name'] . "</h2>
-                <form action='/complete' method='post'>
-                    <input type='button' name='completed' value='completed'>
+    $completed = $toDo['completed'];
+    if ($completed == 0){
+        $output .="<h2>Thing to do no." . $id . ": " . $toDo['name'] . "</h2>
+                <form action='/completed' method='post'>
+                    <input name='id' value='" . $id . "' type='hidden'>
+                    <input type='submit' name='completed' value='completed'>
                 </form>";
+    }
 }
 echo $output;
 ?>
