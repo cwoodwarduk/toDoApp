@@ -17,9 +17,8 @@ class AddToDoController
     {
         $data = $request->getParam('name');
         $result = $this->toDoModel->addToDo($data);
-        var_dump($result);
         if($result){
-            return $response->withRedirect('localhost:8080/', 200);
+            return $response->withStatus(200)->withHeader('Location', '/');
         } else {
             return $response->withJson(["success" => "false", 200]);
         }

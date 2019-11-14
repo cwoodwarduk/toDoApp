@@ -30,10 +30,34 @@ echo $output;
 ?>
 
 <h2>Add Thing To Do</h2>
+
 <form action="/add" method="post" >
     <input name="name" type="text">
     <input type="submit" value="Add To Do">
 </form>
+
+<h1>Things You've Completed</h1>
+
+
+<?php
+$output = '';
+foreach ($toDos as $toDo){
+    $id = $toDo['id'];
+    $completed = $toDo['completed'];
+    if ($completed == 1){
+        $output .="<h2>You completed no." . $id . ": " . $toDo['name'] . ". Didn't you do well!</h2>
+                <form action='/completed' method='post'>
+                    <input name='id' value='" . $id . "' type='hidden'>
+                    <input type='submit' name='completed' value='completed'>
+                </form>
+                <form action='/delete' method='post'>
+                    <input name='id' value='" . $id . "' type='hidden'>
+                    <input type='submit' name='delete' value='delete'>
+                </form>";
+    }
+}
+echo $output;
+?>
 
 </body>
 </html>
