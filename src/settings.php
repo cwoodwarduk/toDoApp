@@ -19,7 +19,7 @@ return [
         //DB settings
         'db' => [
             'host' => 'mysql:host=127.0.0.1;',
-            'dbName' => 'dbname=names',
+            'dbName' => 'dbname=toDoApp',
             'userName' => 'root',
             'password' => 'password'
         ]
