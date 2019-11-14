@@ -30,5 +30,5 @@ return function (App $app) {
 
     $container['ToDoModel'] = new ToDoApp\factories\ToDoModelFactory();
     $container['GetAllToDosController'] = new ToDoApp\factories\GetAllToDosControllerFactory();
-
+    $container['AddToDosController'] = new ToDoApp\factories\AddToDoControllerFactory();
 };
