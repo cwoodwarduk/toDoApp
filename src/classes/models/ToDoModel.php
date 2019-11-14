@@ -31,4 +31,11 @@ class ToDoModel
         $query->bindParam(':id', $id);
         return $query->execute();
     }
+
+    public function deleteToDo($id)
+    {
+        $query = $this->db->prepare('DELETE FROM `toDos` WHERE `id` = :id;');
+        $query->bindParam(':id', $id);
+        return $query->execute();
+    }
 }

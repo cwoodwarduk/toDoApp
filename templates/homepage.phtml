@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <title>Commit You Git! | The To-Do List Tracker</title>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+
 <h1>Your To-Do List:</h1>
 
 <?php
@@ -10,6 +19,10 @@ foreach ($toDos as $toDo){
                 <form action='/completed' method='post'>
                     <input name='id' value='" . $id . "' type='hidden'>
                     <input type='submit' name='completed' value='completed'>
+                </form>
+                <form action='/delete' method='post'>
+                    <input name='id' value='" . $id . "' type='hidden'>
+                    <input type='submit' name='delete' value='delete'>
                 </form>";
     }
 }
@@ -21,3 +34,6 @@ echo $output;
     <input name="name" type="text">
     <input type="submit" value="Add To Do">
 </form>
+
+</body>
+</html>
