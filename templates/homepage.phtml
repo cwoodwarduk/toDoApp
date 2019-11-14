@@ -7,57 +7,76 @@
 </head>
 <body>
 
-<h1>Your To-Do List:</h1>
+<h1 class="title">COMMIT YOU GIT!</h1>
 
-<?php
-$output = '';
-foreach ($toDos as $toDo){
-    $id = $toDo['id'];
-    $completed = $toDo['completed'];
-    if ($completed == 0){
-        $output .="<h2>Thing to do no." . $id . ": " . $toDo['name'] . "</h2>
-                <form action='/completed' method='post'>
-                    <input name='id' value='" . $id . "' type='hidden'>
-                    <input type='submit' name='completed' value='completed'>
-                </form>
-                <form action='/delete' method='post'>
-                    <input name='id' value='" . $id . "' type='hidden'>
-                    <input type='submit' name='delete' value='delete'>
-                </form>";
-    }
-}
-echo $output;
-?>
+<div class="container">
 
-<h2>Add Thing To Do</h2>
+    <div class="toDo">
+        <h1>Your To-Do List:</h1>
 
-<form action="/add" method="post" >
-    <input name="name" type="text">
-    <input type="submit" value="Add To Do">
-</form>
+        <?php
+        $output = '';
+        foreach ($toDos as $toDo){
+            $id = $toDo['id'];
+            $completed = $toDo['completed'];
+            if ($completed == 0){
+                $output .="<h2>Thing to do no." . $id . ": " . $toDo['name'] . "</h2>
+                        <form action='/completed' method='post'>
+                            <input name='id' value='" . $id . "' type='hidden'>
+                            <label>Mark To-Do Completed:</label>
+                            <input type='submit' name='completed' value='completed'>
+                        </form>
+                        <form action='/delete' method='post'>
+                            <input name='id' value='" . $id . "' type='hidden'>
+                            <label>Delete To-Do:</label>
+                            <input type='submit' name='delete' value='delete'>
+                        </form>
+                        <form action='/update' method='post'>
+                            <label>Edit To-Do:</label>
+                            <input name='name' type='text'>
+                            <input name='id' value='" . $id . "' type='hidden'>
+                            <input type='submit'>
+                        </form>";
+            }
+        }
+        echo $output;
+        ?>
+    </div>
 
-<h1>Things You've Completed</h1>
+    <div class="add">
+        <h1>Add Thing To Do</h1>
+
+        <form action="/add" method="post" >
+            <input name="name" type="text">
+            <input type="submit" value="Add To Do">
+        </form>
+    </div>
+
+    <div class="tingDun">
+        <h1>Things You've Completed</h1>
 
 
-<?php
-$output = '';
-foreach ($toDos as $toDo){
-    $id = $toDo['id'];
-    $completed = $toDo['completed'];
-    if ($completed == 1){
-        $output .="<h2>You completed no." . $id . ": " . $toDo['name'] . ". Didn't you do well!</h2>
-                <form action='/completed' method='post'>
-                    <input name='id' value='" . $id . "' type='hidden'>
-                    <input type='submit' name='completed' value='completed'>
-                </form>
-                <form action='/delete' method='post'>
-                    <input name='id' value='" . $id . "' type='hidden'>
-                    <input type='submit' name='delete' value='delete'>
-                </form>";
-    }
-}
-echo $output;
-?>
+        <?php
+        $output = '';
+        foreach ($toDos as $toDo){
+            $id = $toDo['id'];
+            $completed = $toDo['completed'];
+            if ($completed == 1){
+                $output .="<h2>You completed no." . $id . ": " . $toDo['name'] . ". Didn't you do well!</h2>
+                        <form action='/completed' method='post'>
+                            <input name='id' value='" . $id . "' type='hidden'>
+                            <input type='submit' name='completed' value='completed'>
+                        </form>
+                        <form action='/delete' method='post'>
+                            <input name='id' value='" . $id . "' type='hidden'>
+                            <input type='submit' name='delete' value='delete'>
+                        </form>";
+            }
+        }
+        echo $output;
+        ?>
+    </div>
 
+</div>
 </body>
 </html>

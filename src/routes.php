@@ -19,4 +19,5 @@ return function (App $app) {
     $app->post('/add', 'AddToDosController');
     $app->post('/completed', 'SetToDoCompletedController');
     $app->post('/delete', 'DeleteToDoController');
+    $app->post('/update', 'UpdateToDoController');
 };

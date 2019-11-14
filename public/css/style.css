@@ -1,4 +1,43 @@
 * {
+    font-size: 20px;
+    font-family: "American Typewriter"
+}
+
+body {
 
 }
 
+.title {
+    font-size: 3rem;
+    text-align: center;
+    background-color: plum;
+}
+
+.container {
+    overflow: auto;
+    background-image: linear-gradient(NavajoWhite, Cornsilk);
+}
+
+.toDo {
+    width: 30%;
+    height: 100%;
+    float: left;
+    border-right: black 2px solid;
+    padding: 20px;
+
+}
+
+.add {
+    width: 30%;
+    float: left;
+    border-right: black 2px solid;
+    padding: 20px;
+    height: 100%;
+}
+
+.tingDun {
+    width: 30%;
+    float: left;
+    padding: 20px;
+    height: 100%;
+}
