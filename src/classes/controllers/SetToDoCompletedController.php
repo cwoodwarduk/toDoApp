@@ -18,7 +18,7 @@ class SetToDoCompletedController
         $id = $request->getParam('id');
         $result = $this->toDoModel->completeToDo($id);
         if($result){
-            return $response->withStatus(200)->withHeader('Location', '/');
+            return $response->withRedirect('/');
         } else {
             return $response->withJson(["success" => "false", 200]);
         }

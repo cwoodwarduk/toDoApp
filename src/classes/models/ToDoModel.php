@@ -12,7 +12,7 @@ class ToDoModel
 
     public function getAllToDos()
     {
-        $query = $this->db->prepare('SELECT `id`, `name`, `completed` FROM `toDos`;');
+        $query = $this->db->prepare('SELECT `id`, `name`, `completed`, `deleted` FROM `toDos`;');
         $query->execute();
         $results = $query->fetchAll();
         return $results;
@@ -20,7 +20,7 @@ class ToDoModel
 
     public function addToDo($name)
     {
-        $query = $this->db->prepare('INSERT INTO `toDos` (`name`, `completed`) VALUES (:name, 0);');
+        $query = $this->db->prepare('INSERT INTO `toDos` (`name`, `completed`, `deleted`) VALUES (:name, 0, 0);');
         $query->bindParam(':name', $name);
         return $query->execute();
     }
@@ -34,7 +34,7 @@ class ToDoModel
 
     public function deleteToDo($id)
     {
-        $query = $this->db->prepare('DELETE FROM `toDos` WHERE `id` = :id;');
+        $query = $this->db->prepare('UPDATE `toDos` SET `deleted` = 1 WHERE `id` = :id;');
         $query->bindParam(':id', $id);
         return $query->execute();
     }

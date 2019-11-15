@@ -2,6 +2,7 @@
 
 namespace ToDoApp\controllers;
 
+use http\Env\Response;
 use ToDoApp\models\ToDoModel;
 
 class AddToDoController
@@ -18,7 +19,7 @@ class AddToDoController
         $data = $request->getParam('name');
         $result = $this->toDoModel->addToDo($data);
         if($result){
-            return $response->withStatus(200)->withHeader('Location', '/');
+            return $response->withRedirect('/');
         } else {
             return $response->withJson(["success" => "false", 200]);
         }

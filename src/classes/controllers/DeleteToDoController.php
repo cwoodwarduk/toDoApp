@@ -2,6 +2,7 @@
 
 namespace ToDoApp\controllers;
 
+use Slim\Http\Response;
 use ToDoApp\models\ToDoModel;
 
 class DeleteToDoController
@@ -18,7 +19,7 @@ class DeleteToDoController
         $id = $request->getParam('id');
         $result = $this->toDoModel->deleteToDo($id);
         if($result){
-            return $response->withStatus(200)->withHeader('Location', '/');
+            return $response->withRedirect('/');
         } else {
             return $response->withJson(["success" => "false", 200]);
         }
