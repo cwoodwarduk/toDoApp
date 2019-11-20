@@ -14,7 +14,7 @@ class DisplayToDoHelper
             $completed = $toDo['completed'];
             $deleted = $toDo['deleted'];
             if ($completed == 0 && $deleted == 0){
-                $output .="<div class='toDo'>
+                $output .="<div class='story'>
                             <h2>No." . $id . ": " . $name . "</h2>
                             <div class='options'>
                             
