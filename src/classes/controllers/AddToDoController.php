@@ -16,7 +16,9 @@ class AddToDoController
 
     public function __invoke($request, $response, $args)
     {
-        $data = $request->getParam('name');
+        $data = $request->getParsedBody();
+        $data = $data['name'];
+        var_dump($data);
         $result = $this->toDoModel->addToDo($data);
         if($result){
             return $response->withRedirect('/');

@@ -18,16 +18,16 @@
     </div>
     <div class="menuContainer">
         <ul class="menu">
-            <li>TO-DOS</li>
-            <li>ADD</li>
-            <li>COMPLETE</li>
+            <a href="#toDos"><li>TO-DOS</li></a>
+            <a href="#add"><li>ADD</li></a>
+            <a href="#completed"><li>COMPLETE</li></a>
         </ul>
     </div>
 </nav>
 
 <div class="container">
 
-    <div class="stories">
+    <div id="toDos">
         <h1>Things To Do:</h1>
 
         <?php
@@ -35,7 +35,7 @@
         ?>
     </div>
 
-    <div class="add">
+    <div class="add" id="add">
         <h1>Add Thing To Do</h1>
 
         <form action="/add" method="post" >
@@ -44,7 +44,7 @@
         </form>
     </div>
 
-    <div class="completed">
+    <div class="completed" id="completed">
         <h1>Things You've Completed</h1>
 
 
